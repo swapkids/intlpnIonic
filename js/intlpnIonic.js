@@ -449,7 +449,7 @@ angular.module('intlpnIonic', ['ionic'])
         },
         replace:true,
         template: '<div class="item item-input intlpn-container">' +
-                        '<i class="icon icon-intlpn-flag {{ isocode }}" ng-click="pickCountry()" ></i>'+
+                        '<i class="icon icon-intlpn-flag {{ isocode }}" on-tap="pickCountry()" ></i>'+
                         '<input intlpn-formatter national-mode="nationalMode" iso-code="{{isocode}}" type="tel" placeholder="{{placeholder||\'test\'}}" ng-model="phone" >' +
                 '</div>'
     };
