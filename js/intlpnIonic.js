@@ -462,6 +462,6 @@ angular.module('intlpnIonic', ['ionic'])
         if( type == 'national') {
             t=utils.numberFormat.NATIONAL;
         }
-        return utils.formatNumberByType(input, null, t);
+        return utils.formatNumber(input, null, t);
     }
 });
