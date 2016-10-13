@@ -280,7 +280,7 @@ angular.module('intlpnIonic', ['ionic'])
                 if( modelValue )
                     modelValue = modelValue.replace(/[^0-9]/g, "");
                 if( scope.national ) {
-                    //return  modelValue?intlTelInputUtils.formatNumberByType(modelValue,scope.isocode,intlTelInputUtils.numberFormat.NATIONAL):'';
+                    //return  modelValue?intlTelInputUtils.formatNumber(modelValue,scope.isocode,intlTelInputUtils.numberFormat.NATIONAL):'';
                     return  modelValue?intlTelInputUtils.formatNumber('+'+modelValue):'';
                 } else {
                     return  modelValue?intlTelInputUtils.formatNumber('+'+modelValue):'';
@@ -293,7 +293,7 @@ angular.module('intlpnIonic', ['ionic'])
                 scope.isocode = scope.intlpnHelper.getFlagFromNumber( ngModelCtrl.$viewValue );
                 scope.countryIsoCode = scope.isocode;
                 if( scope.national ) {
-                    scope.phone = intlTelInputUtils.formatNumberByType(ngModelCtrl.$viewValue,scope.isocode,intlTelInputUtils.numberFormat.NATIONAL);
+                    scope.phone = intlTelInputUtils.formatNumber(ngModelCtrl.$viewValue,scope.isocode,intlTelInputUtils.numberFormat.NATIONAL);
                 } else {
                     scope.phone = ngModelCtrl.$viewValue;
                 }
@@ -302,7 +302,7 @@ angular.module('intlpnIonic', ['ionic'])
             ngModelCtrl.$parsers.push(function(viewValue) {
                 if( scope.national ) {
                     //clean everything that is not numeric or +
-                    viewValue = intlTelInputUtils.formatNumberByType(viewValue, scope.isocode, intlTelInputUtils.numberFormat.INTERNATIONAL).replace(/[^0-9]/g, "");
+                    viewValue = intlTelInputUtils.formatNumber(viewValue, scope.isocode, intlTelInputUtils.numberFormat.INTERNATIONAL).replace(/[^0-9]/g, "");
                     return viewValue?'+' + viewValue:'';
                 } else {
                     //clean everything that is not numeric or +
@@ -349,7 +349,7 @@ angular.module('intlpnIonic', ['ionic'])
             ngModelCtrl.$validators.validForm = function( modelValue, viewValue ) {
                 //check if the cleaned value is correct
                 if( scope.national ) {
-                    var phone = intlTelInputUtils.formatNumberByType(scope.phone, scope.isocode, intlTelInputUtils.numberFormat.INTERNATIONAL);
+                    var phone = intlTelInputUtils.formatNumber(scope.phone, scope.isocode, intlTelInputUtils.numberFormat.INTERNATIONAL);
                     var dial = scope.intlpnHelper.getDialCode(phone);
                     return dial === scope.dialCode && scope.isValid( modelValue, scope.isocode );
                 } else {
